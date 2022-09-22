@@ -19,4 +19,5 @@ class TestResourse extends JsonResource
             'title' => $request->title,
         ];
     }
+    
 }
