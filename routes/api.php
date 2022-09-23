@@ -33,7 +33,13 @@ Route::group([
 
 });
 
-Route::group(['namespace' => 'App\Http\Controllers\Test'], function() {
-    Route::get('/index');
+Route::group(['namespace' => 'App\Http\Controllers\Test', 'middleware' => 'jwt.auth'], function() {
+    Route::get('tests', 'IndexController');
+    Route::get('tests/create', 'CreateController');
+    Route::post('tests', 'StoreContorller');
+    Route::get('tests/{test}', 'ShowContoroller');
+    Route::get('tests/{test}/edit', 'EditController');
+    Route::patch('tests/{test}', 'UpdateController');
+    Route::delete('tests/{test}', 'DestroyController');
 });
 
