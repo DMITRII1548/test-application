@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
     use HasFactory;
+
+    protected $quarded = false;
+
+    public function question()
+    {
+        return $this->BelongsTo(Question::class, 'question_id', 'id');
+    }
+
 }

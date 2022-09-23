@@ -16,11 +16,11 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->string('answer');
-            $table->unsignedBigInteger('question_id');
+            $table->unsignedBigInteger('question_id')->nullable();
             $table->boolean('correctness')->default(false);
             $table->timestamps();
 
-            $table->foreign('answer')->references('id')->on('questions');
+            $table->foreign('question_id')->references('id')->on('questions');
         });
     }
 
